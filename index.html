@@ -37,12 +37,14 @@
             <h3>Filter evenmenten</h3>
             <form action="">
                 <span>
-                    <label for="">Status opens</label>
-                    <input type="checkbox"><img src="" alt="">
+                    <label class="toggle" for="toggleStatus">Status open</label>
+                    <input type="checkbox" id="toggleStatus">
+                    <img src="images/statusOpen.png" alt="">
                 </span>
                 <span>
-                    <label for="">Filter op beschrijving</label>
+                    <img src="images/beschrijving.png" alt="">
                     <select name="description" id="">
+                        <option value="">Filter op beschrijving</option>
                         <option value="">AMB timing</option>
                         <option value="">GNSS position</option>
                     </select>
