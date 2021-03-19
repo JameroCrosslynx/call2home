@@ -11,6 +11,7 @@ header{
     left: 0; 
     width: 100%;
     height: 10vh;
+    z-index: 1;
 }
 
 header img{
@@ -110,23 +111,70 @@ h1{
     width: 60%;
 }
 
-form input{
-    /display: none;
+#checkbox{
+    position: relative;
+    width: 100%;
+    height: 6vh;
 }
 
-form label{
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6rem;
+}
+
+form input{
+    display: none;
+}
+
+#checkbox{
+    position: relative;
     display: block;
-    width: 60%;
-    font-size: 2.5rem;
-    height: 6vh;
-    border: none;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    width: 10rem;
+}
+
+form span:last-of-type{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: block;
+    width: 10rem;
+}
+
+form #checkbox label::before{
+    position: absolute;
+    left: 10;
+    content: "Status open";
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    height: 6rem;
     box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 1vh;
-    padding: 0 1rem 0 7rem;
+    padding: 1rem 1rem -1rem 7rem;
 }
 
-#toggleStatus:checked ~ .toggle{
-    background-color: #000;
+form #checkbox label::after{
+    position: absolute;
+    left: 0;
+    content: "Status open";
+    display: inline-block;
+    width: 100%;
+    font-size: 2rem;
+    height: 6rem;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 1vh;
+    padding: 1rem 1rem -1rem 7rem;
+    background-color: #c6d300;
+}
+
+#checkbox #toggleStatus + label::after {
+    content: none;
+}
+
+#checkbox #toggleStatus:checked + label::after {
+    content: "Status open";
 }
 
 form span img{
@@ -138,8 +186,8 @@ form span img{
 
 form select{
     width: 100%;
-    font-size: 2.5rem;
-    height: 6vh;
+    font-size: 2rem;
+    height: 6rem;
     border: none;
     box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
     border-radius: 1vh;
@@ -167,4 +215,104 @@ button img{
     right: 2vh;
     top: calc(50% - 1.5vh);
     height: 3vh;
+}
+
+#blockingZones ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+#blockingZones ul li{
+    background-color: #f2f2f2;
+    height: 5rem;
+    width: calc(100% - 2rem);
+    padding: 2.5rem 0 1rem 2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+#blockingZones span{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 38rem;
+    margin-top: 1rem;
+}
+
+#blockingZones svg:first-of-type{
+    height: 38rem;
+    width: 38rem; 
+    left: calc(50% - 19rem);
+    top: calc(50% - 19rem);
+    margin: auto;
+    position: absolute;
+}
+
+#blockingZones svg:last-of-type{
+    height: 15rem;
+    position: absolute;
+    width: 5rem;
+    left: calc(50% - 2.5rem);
+    bottom: calc(50% - 7.5rem);
+}
+
+#statistics ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+#statistics ul li{
+    background-color: #f2f2f2;
+    height: 5rem;
+    width: calc(100% - 5rem);
+    padding: 2rem 0 2rem 5rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    position: relative;
+}
+
+#statistics ul li::before{
+    background-color: #000;
+    display: block;
+    width: 3rem;
+    height: 9rem;
+    content: "";
+    z-index: 99;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#statistics ul li:nth-of-type(1)::before{
+    background-color: #2A7EAA;
+}
+
+#statistics ul li:nth-of-type(2)::before{
+    background-color: #3ADFB2;
+}
+
+#statistics ul li:nth-of-type(3)::before{
+    background-color: #446978;
+}
+
+#statistics ul li:nth-of-type(4)::before{
+    background-color: #E46A62;
+}
+
+#statistics ul li:nth-of-type(5)::before{
+    background-color: #AD132A;
+}
+
+#statistics ul li:nth-of-type(6)::before{
+    background-color: #454545;
+}
+
+#statistics ul li span{
+    font-weight: 100;
+    display: block;
 }
